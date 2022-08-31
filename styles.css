@@ -1,0 +1,45 @@
+* {
+    font-family: sans-serif;
+}
+
+body {
+    background-color: black;
+}
+.header {
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.title {
+    text-align: center;
+    margin: 10px;
+    font-size: 28px;
+}
+
+#score {
+    text-align: center;
+    margin: 10px;
+    font-size: 28px;
+}
+
+.gameView { 
+    background-color: white;
+    display: flex;
+    flex: 1;
+    border-radius: 25px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.gameView button { 
+    font-size: 28px;
+    flex: 1;
+    padding: 25px;
+    border-style: solid;
+    border-color: gray;
+    border-radius: 25px;
+    margin: 15px;
+    border-width: 5px;
+}
