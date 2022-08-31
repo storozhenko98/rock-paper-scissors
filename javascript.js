@@ -6,6 +6,8 @@ const scissorsButton = document.querySelector("#Scissors");
 const score = document.querySelector("#score");
 const playerWin = document.querySelector("#playerWin");
 const computerWin = document.querySelector("#computerWin");
+const tieWin = document.querySelector("#tie");
+
 
 rockButton.addEventListener("click", ()=>{pC = "rock"; playAGame()});
 paperButton.addEventListener("click", ()=>{pC = "paper"; playAGame()});
@@ -68,11 +70,23 @@ function adjudicator(pC, comC) {
 function playAGame() {
     playerWin.style.cssText = "background: darkgreen";
     computerWin.style.cssText = "background: darkred";
+    tieWin.style.cssText = "background: darkgoldenrod";
     const pC = gatherPlayerChoice();
     const comC = gatherComputerChoice();
     const result = adjudicator(pC, comC);
     scoreTracker(result);
     score.textContent=`Player: ${playerScore} || Computer: ${computerScore}`;
+    if (playerScore >= 5 || computerScore >= 5) {
+        if (playerScore > computerScore) {
+            alert("You beat the Computer out of 5!");
+        } else if (computerScore > playerScore) { 
+            alert("You were beaten by the computer out of 5!");
+        }
+        alert("Game Match Reached; Score will reset to 0-0");
+        playerScore = 0;
+        computerScore = 0; 
+        score.textContent=`Player: ${playerScore} || Computer: ${computerScore}`;
+    }
 }
 
 function scoreTracker (result) {
@@ -82,6 +96,8 @@ function scoreTracker (result) {
     } else if (result == "loss") {
         computerScore +=1; 
         computerWin.style.cssText = "background: red";
+    } else if (result == "tie") {
+        tieWin.style.cssText = "background: gold";
     }
 }
 
