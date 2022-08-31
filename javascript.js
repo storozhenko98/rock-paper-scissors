@@ -3,13 +3,15 @@ let computerScore = 0;
 const rockButton = document.querySelector("#Rock");
 const paperButton = document.querySelector("#Paper");
 const scissorsButton = document.querySelector("#Scissors");
+const score = document.querySelector("#score");
+const playerWin = document.querySelector("#playerWin");
+const computerWin = document.querySelector("#computerWin");
 
-
+rockButton.addEventListener("click", ()=>{pC = "rock"});
+paperButton.addEventListener("click", ()=>{pC = "paper"});
+scissorsButton.addEventListener("click", ()=>{pC = "scissors"});
 
 function gatherPlayerChoice() {
-    const cipC = prompt("Rock, Paper, Scissors?");
-    const pC = cipC.toLowerCase(); 
-    console.log(pC);
     return pC; 
 }
 
@@ -81,6 +83,8 @@ function scoreTracker (result) {
     }
     alert(`You have ${playerScore} points, while the Computer has ${computerScore} points`)
 }
+
+
 
 /*while (playerScore < 5 && computerScore<5) { 
     playAGame();
