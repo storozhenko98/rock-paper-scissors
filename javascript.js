@@ -7,9 +7,9 @@ const score = document.querySelector("#score");
 const playerWin = document.querySelector("#playerWin");
 const computerWin = document.querySelector("#computerWin");
 
-rockButton.addEventListener("click", ()=>{pC = "rock"});
-paperButton.addEventListener("click", ()=>{pC = "paper"});
-scissorsButton.addEventListener("click", ()=>{pC = "scissors"});
+rockButton.addEventListener("click", ()=>{pC = "rock"; playAGame()});
+paperButton.addEventListener("click", ()=>{pC = "paper"; playAGame()});
+scissorsButton.addEventListener("click", ()=>{pC = "scissors"; playAGame()});
 
 function gatherPlayerChoice() {
     return pC; 
@@ -20,7 +20,6 @@ function gatherComputerChoice() {
     console.log(numCC);
     const comC = comChoiceAssigner(numCC)
     console.log(comC);
-    alert(`Computer chose ${comC}.`)
     return comC;
 }
 
@@ -67,21 +66,23 @@ function adjudicator(pC, comC) {
 
 
 function playAGame() {
+    playerWin.style.cssText = "background: darkgreen";
+    computerWin.style.cssText = "background: darkred";
     const pC = gatherPlayerChoice();
     const comC = gatherComputerChoice();
     const result = adjudicator(pC, comC);
-    alert(`The result, for you, is a ${result}`);
     scoreTracker(result);
-
+    score.textContent=`Player: ${playerScore} || Computer: ${computerScore}`;
 }
 
 function scoreTracker (result) {
     if (result == "win") { 
+        playerWin.style.cssText = "background: lime";
         playerScore +=1; 
     } else if (result == "loss") {
         computerScore +=1; 
+        computerWin.style.cssText = "background: red";
     }
-    alert(`You have ${playerScore} points, while the Computer has ${computerScore} points`)
 }
 
 
