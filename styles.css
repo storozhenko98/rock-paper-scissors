@@ -48,6 +48,7 @@ body {
 .roundWinner { 
     display: flex;
     margin-top: 10px;
+    flex-wrap: wrap;
 }
 .roundWinner div {
     flex: 1;
