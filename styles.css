@@ -43,3 +43,22 @@ body {
     margin: 15px;
     border-width: 5px;
 }
+.roundWinner { 
+    display: flex;
+    margin-top: 10px;
+}
+.roundWinner div {
+    flex: 1;
+    margin: 15px;
+    text-align: center;
+    font-size: 28px;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+#playerWin {
+    background-color: darkgreen;
+}
+#computerWin { 
+    background-color: darkred;
+}
